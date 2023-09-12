@@ -12,7 +12,6 @@ def put_images(FILE_NAME):
             if row and row[0].startswith("https"):
                 urls.append(row[0])
 
-    # Debugging: Print the number of URLs found
     print(f"Total URLs found: {len(urls)}")
 
     if not os.path.isdir("downloaded_images"):
@@ -24,11 +23,8 @@ def put_images(FILE_NAME):
         try:
             resp = requests.get(url, stream=True)
             if resp.status_code == 200:
-                # Extract the image file name from the URL
                 image_name = url.split("/")[-1]
                 file_path = os.path.join("downloaded_images", image_name)
-                
-                # Save the image to the 'downloaded_images' directory
                 with open(file_path, 'wb') as outfile:
                     outfile.write(resp.content)
                 
