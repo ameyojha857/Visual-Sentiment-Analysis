@@ -6,11 +6,7 @@ import numpy as np
 from PIL import Image
 
 Image.MAX_IMAGE_PIXELS = None
-
-# Define the target size as (96, 96)
 target_size = (96, 96)
-
-# Create ImageDataGenerator objects for training and testing data
 trdata = ImageDataGenerator()
 traindata = trdata.flow_from_directory(directory='C:/Users/Ameyo/OneDrive/Desktop/Visual-Sentiment-Analysis-in-Python-master/downloaded_images', target_size=target_size)
 
@@ -54,7 +50,7 @@ ResNet101.trainable = False
 
 model_resnet101 = Sequential([
     ResNet101,
-    keras.layers.GlobalAveragePooling2D(),  # Use Global Average Pooling instead of Flatten
+    keras.layers.GlobalAveragePooling2D(),  
     keras.layers.Dense(units=256, activation="relu"),
     keras.layers.Dense(units=256, activation="relu"),
     keras.layers.Dense(units=8, activation="softmax")
