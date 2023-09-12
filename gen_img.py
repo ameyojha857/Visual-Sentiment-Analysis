@@ -2,10 +2,7 @@ import requests
 import pandas as pd
 import sys
 import xml.etree.ElementTree as ET
-
-# Your Flickr API key
 key = 'aa9cbb0147c5a510fbb0a4f179dacbce'
-
 def get_urls(image_tag, MAX_COUNT):
     urls = []
     page = 1
